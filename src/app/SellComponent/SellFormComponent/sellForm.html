@@ -1,0 +1,99 @@
+<div id="sell_form" class="col-xs-offset-2 col-xs-8 container-fluid">
+    <form #sellForm="ngForm" style="top:5%;">
+        <h2>Submit Product Details:<hr></h2>
+        <div id="titleDiv" class="form-group row" [class.has-error]="title.invalid && title.touched">
+            <label for="title" class="col-sm-2 control-label" style="text-align:right;top:7px;">Title:</label>
+            <input #title="ngModel" required [(ngModel)]="newProduct.title" class="form-control" style="width:75%;" name="productTitle" type="text" maxlength="80" id="title" placeholder="Enter Suitable Title For Your Product"/>
+            <span class="alert alert-danger" *ngIf="title.invalid && title.touched"><i class="fa fa-exclamation fa-md"></i> Title field can't be empty</span>
+        </div>
+         <div id="catNbrn" class="form-group row">
+            <div class="row col-sm-6" [class.has-error]="received.category">
+                <label for="cats" class="col-sm-5 control-label" style="text-align:right;top:7px;">Category:</label>
+                <select #categoryVariable [(ngModel)]="newProduct.category" class="form-control" (blur)="validateValue('cat',categoryVariable.value)" (change)="validateValue('cat',categoryVariable.value)" (click)="getBrands(newProduct.category)" id="cats" name="category" style="width:35%;">
+                    <option value="default" disabled>Select a Category...</option>
+                    <option *ngFor="let cat of category" value="{{cat}}">{{cat}}</option>
+                </select>
+            </div>
+            <div class="row col-sm-6" [class.has-error]="received.brand">
+                <label for="brands" class="col-sm-4 control-label" style="text-align:right;top:7px;">Brand:</label>
+                <select #brandVariable [(ngModel)]="newProduct.brand" class="form-control" name="brandSelected" id="brands" (blur)="validateValue('brand',brandVariable.value)" (change)="validateValue('brand',brandVariable.value)" (click)="getModels(newProduct.category,newProduct.brand)" style="width:35%;">
+                    <option value="default" disabled>Select a Brand...</option>
+                    <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
+                </select>
+            </div>
+        </div>
+        <div id="mdlNbtn" class="form-group row">
+            <div class="row col-sm-6" [class.has-error]="received.model">
+                <label for="model" class="col-sm-5 control-label" style="text-align:right;top:7px;">Model:</label>
+                <select #modelVariable [(ngModel)]="newProduct.model" class="form-control" name="modelSelected" id="model" (blur)="validateValue('model',modelVariable.value)" (change)="validateValue('model',modelVariable.value)" style="width:35%;">
+                    <option value="default" disabled>Select a Model...</option>
+                    <option *ngFor="let mod of models" value="{{mod}}">{{mod}}</option>
+                </select>
+            </div>
+            <div id="addCatButton" class="col-sm-6">
+                <button class="btn btn-success col-lg-offset-4 col-md-offset-4 col-md-4 col-lg-4 col-sm-offset-1 col-sm-6" (click)="show()"><i class="fa fa-plus"></i> Add Category</button>
+            </div>
+        </div>
+        <div id="priceDiv" class="form-group row" [class.has-error]="cost.invalid && cost.touched">
+            <label for="price" class="col-sm-2 control-label" style="text-align:right;top:7px;">Price:</label>
+            <input #cost="ngModel" required [(ngModel)]="newProduct.price" class="form-control" name="price" type="text" id="price" style="width:75%;" placeholder="Enter the Selling Price"/>
+            <span class="alert alert-danger" *ngIf="cost.invalid && cost.touched"><i class="fa fa-exclamation fa-md"></i> Price field can't be empty</span>
+        </div>
+        <div id="descDiv" class="form-group row" [class.has-error]="descr.invalid && descr.touched">
+            <label for="description" class="col-sm-2 control-label" style="text-align:right;top:0px;">Ad-Description:</label>
+            <input #descr="ngModel" required [(ngModel)]="newProduct.description" class="form-control" name="desc" type="text" style="width:75%;" id="description" placeholder="Enter the Detailed Description About Your Product">
+            <span class="alert alert-danger" *ngIf="descr.invalid && descr.touched"><i class="fa fa-exclamation fa-md"></i> Description field can't be empty</span>
+        </div>
+        <div id="addrDiv" class="form-group row" [class.has-error]="addr.invalid && addr.touched">
+            <label for="address" class="col-sm-2 control-label" style="text-align:right;top:7px;">Address:</label>
+            <input #addr="ngModel" required [(ngModel)]="newProduct.address" class="form-control" name="add" type="text" style="width:75%;" id="address" placeholder="Enter Your Address">
+            <span class="alert alert-danger" *ngIf="addr.invalid && addr.touched"><i class="fa fa-exclamation fa-md"></i> Address field can't be empty</span>
+        </div>
+        <div id="imgDiv" class="form-group row" [class.has-error]="URL.invalid && URL.touched">
+            <label for="picture" class="col-sm-2 control-label" style="text-align:right;top:0px;">Image URL:</label>
+            <input #URL="ngModel" required [(ngModel)]="newProduct.URL" class="form-control" name="imgUrl" type="text" style="width:75%;" id="picture" placeholder="Provide Product Image URL"/>
+            <span class="alert alert-danger" *ngIf="URL.invalid && URL.touched"><i class="fa fa-exclamation fa-md"></i> URL field can't be empty</span>
+        </div>
+        <div id="stateDiv" class="form-group row">
+            <label class="col-sm-2 control-label" style="text-align:right;">Product State:</label>
+            <div class="col-sm-5"> <input #new="ngModel" required [(ngModel)]="newProduct.state" type="radio" name="state" value="New"> New</div>
+            <div id="used" class="col-sm-5"> <input #used="ngModel" required [(ngModel)]="newProduct.state" type="radio" name="state" value="Used"> Used</div>
+        </div>
+        <div class="form-group row">
+            <hr>
+            <button type="submit" class="btn btn-primary col-sm-offset-5 col-sm-2 col-xs-offset-4 col-xs-4" 
+            [disabled]="sellForm.invalid" (click)="submitProduct()">
+            Submit Ad</button>
+        </div>  
+    </form>
+</div>
+<div class="blackBG col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="addCategoryDiv" (click)="show()">
+    <button (click)="show()" class="col-lg-offset-11"><i class="fa fa-remove"></i></button>
+</div>
+<form #newForm="ngForm" *ngIf="addCategoryDiv" class="newCatNBrand col-xs-offset-2 col-xs-8"> <!--*ngIf="addCategoryDiv">-->
+    <h2 class="col-lg-4">Add New Cateogry</h2>
+    <hr class="col-lg-11" style="top:-22px;">
+    <div class="col-lg-4 row" [class.has-error]="newcat.invalid && newcat.touched">
+        <label for="newCategory" class=" control-label">New Category: </label>
+        <input #newcat="ngModel" required [(ngModel)]="newCatBrandModel.category" name="newCat" type="text" id="newCategory" class="form-control" placeholder="Enter New Unique Category">
+        <span class="alert alert-danger" *ngIf="newcat.invalid && newcat.touched"><i class="fa fa-exclamation fa-md"></i> New Category field can't be empty</span>
+    </div>
+    <div class="col-lg-4 row" [class.has-error]="newbrand.invalid && newbrand.touched">
+        <label for="newBrand" class="col-lg-12">New Brand: </label>
+        <input #newbrand="ngModel" required [(ngModel)]="newCatBrandModel.brand" name="newBrand" type="text" id="newBrand" class="form-control" placeholder="Enter New Unique Brand">
+        <span class="alert alert-danger" *ngIf="newbrand.invalid && newbrand.touched"><i class="fa fa-exclamation fa-md"></i> New Brand field can't be empty</span>
+    </div><br/>
+    <div class="col-lg-4 row" [class.has-error]="newmodel.invalid && newmodel.touched">
+        <label for="newModel" class="col-lg-12 control-label">New Model: </label>
+        <input #newmodel="ngModel" required [(ngModel)]="newCatBrandModel.model" name="newMod" type="text" id="newModel" class="form-control" placeholder="Enter New Unique Model">
+        <span class="alert alert-danger" *ngIf="newmodel.invalid && newmodel.touched"><i class="fa fa-exclamation fa-md"></i> New Model field can't be empty</span>
+    </div><br/>
+    <button class="btn btn-success col-lg-offset-5 col-lg-2" style="margin-top:22px;" [disabled]="newForm.invalid" (click)="saveCategory()">Save</button>
+</form>
+<div class="blackBG col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="errorCategoryDiv" (click)="showResult()">
+    <button (click)="showResult()" class="col-lg-offset-11"><i class="fa fa-remove"></i></button>
+</div>
+<div *ngIf="errorCategoryDiv" class="newCatNBrand col-xl-offset-2 col-xl-8 col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+    <h2>{{result}}:</h2><hr>
+    <h4>{{returnedValue}}</h4>
+</div>

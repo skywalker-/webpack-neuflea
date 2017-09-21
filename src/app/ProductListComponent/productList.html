@@ -1,0 +1,67 @@
+ <!-- <div *ngFor="let product of slaveProducts | filterProduct:checked" class="col-xs-offset-1 col-xs-7">
+    <a routerLink="/product/{{product._id}}">
+    <div class="col-xs-12 row item_div1" style="border-left:5px solid #00cc66">
+        <div id="image" class="col-sm-3 col-xs-3 div1">
+            <img width="80" height="90" style="margin:8px 0px 4px 0px;text-align:left;" [src]="product.URL" />
+        </div>
+        <div class="col-sm-9 col-xs-9 div2">
+            <div id="title" class="col-sm-12">
+                    <h4>{{product.title}}</h4>
+            </div>
+            <div id="add" class="col-sm-6"><b>Address:</b> {{product.address}}</div>
+            <div id="price" class="col-sm-offset- col-sm-6" style="color:#b36b00;text-align:left"><b>Price: </b>{{ product.price | currency:"INR":true:'1.2-2'}}/- </div>
+            <div id="date" class="col-sm-12" style="color:#004d00;"><b>Posted:</b> {{product.date}}</div>
+        </div>
+    </div>
+    </a>
+</div>  -->
+
+ 
+<!-- <div id="buyBgDiv"></div> -->
+<div class="col-xs-offset-1 col-xs-9">
+    <div *ngFor="let product of pagedItems | filterProduct:checked" style="margin-top:20px;z-index:2;">
+        <div></div>
+        <a id="pro" routerLink="/product/{{product._id}}" class="col-xs-3 item_div2">
+            <img width="170" height="100" class="col-xs-12" style="margin-top:8px;" [src]="product.URL"/>
+            <div class="col-xs-12" style="padding:0;">
+                <hr style="margin-top:10px;">
+                <h4 style="margin-top:-15px;color:#000066">{{product.title}}</h4>
+                <div class="col-xs-12" style="padding:0px;margin:0px;color:#52527a;">
+                    <span style="padding:0px;color:brown;margin-bottom:5px;" class="col-xs-10">{{ product.price | currency:"INR":true:'1.2-2'}}/-</span>
+                    <span class="col-xs-6 productStyles">Category: {{product.category | lowercase}}</span>
+                    <span class="col-xs-6 productStyles"> Brand: {{product.brand | lowercase}}</span>
+                    <span class="col-xs-6 productStyles">Model: {{product.model | lowercase}}</span>
+                    <span class="col-xs-6 productStyles">State: {{product.state | lowercase}}</span>
+                    <!-- <span class="col-xs-offset-10 col-xs-1" style="color:green;" *ngIf="product.status == 'Available'" title="Available"><div style="width:20px;height:20px;left:30px;background-color:green;"></div></span>
+                    <span class="col-xs-offset-10 col-xs-1" style="color:red;" *ngIf="product.status == 'Sold'" title="Sold Out"><div style="width:20px;height:20px;background-color:red;"></div></span> -->
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+ <div style="z-index:5;" class="blackBG col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="error.errorDiv" (click)="showError()">
+    <button (click)="showError()" class="col-lg-offset-11"><i class="fa fa-remove"></i></button>
+</div>
+<div style="z-index:6;"  *ngIf="error.errorDiv" class="newCatNBrand col-xl-offset-2 col-xl-8 col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+    <h2>{{error.result}}</h2><hr>
+    <h4>{{error.returnedValue}}</h4>
+</div>
+ <nav aria-label="Page navigation example" id="paginationNav" class="col-xs-offset-5 col-xs-6">
+    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+            <a (click)="setPage(1)" class="page-link">First</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+            <a (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item">
+            <a (click)="setPage(page)" class="page-link">{{page}}</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a (click)="setPage(pager.currentPage + 1)" class="page-link">Next</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a (click)="setPage(pager.totalPages)" class="page-link">Last</a>
+        </li>
+    </ul>
+</nav> 

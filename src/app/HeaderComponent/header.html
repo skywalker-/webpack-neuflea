@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" style="background-color:#e6e6e6;" class="navbar-toggle" data-toggle="collapse" data-target="#myLinks">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+            <a routerLink="/buy" class="navbar-brand">NeuFlea</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myLinks">
+            <ul class="nav navbar-nav navbar-right ">
+                <li *ngIf="loggedInUser"><a>Hi, {{loggedInUser[0].fullName}}</a></li>
+                <li><a routerLink="/buy" routerLinkActive="active-link" title="Buy Products From Here">Buy</a></li>
+                <li><a routerLink="/sell" routerLinkActive="active-link" title="Sell Products Here">Sell</a></li>
+                <li><a routerLink="/login" routerLinkActive="active-link" *ngIf="!loggedInUser" title="Login form Here">Log In</a></li>
+                <li><a routerLink="/" *ngIf="loggedInUser" title="Sign Out form Here" (click)="logout()">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

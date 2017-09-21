@@ -1,0 +1,300 @@
+/*=================START of Header CSS=================*/
+
+body {
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    background-image: url('/images/bg.png');
+    background-repeat: repeat;
+}
+
+a{
+    text-decoration: none;
+}
+
+li {
+    font-size: large;
+}
+
+div.panel-heading {
+    font-size: x-large;
+}
+
+.navbar {
+    background-color: #004466;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-size: 30px;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #ffbf00;
+}
+
+.navbar-default > li > a {
+    color:white;
+}
+
+.navbar-default .navbar-nav > li > a {
+     color:white;
+} 
+
+.navbar-default .navbar-nav > li .active-link {
+     color:#00cc66;
+    border-bottom: 3px inset #00cc66;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #ffbf00;
+    /* border-bottom: 3px inset #ffbf00; */
+}
+
+
+/*==================END of Header CSS=================*/
+
+
+/*==================START of Buy CSS==================*/
+
+.item_div1 {
+    background-color: white;
+    box-shadow: 3px 3px 3px grey;
+    height: auto;
+    margin-top: 20px;
+}
+
+.item_div2 {
+    background-color: white;
+    box-shadow: 3px 3px 10px grey;
+    height: 250px;
+    margin:0px 2px 15px 2px;
+    text-decoration: none;
+    border-radius:5px;
+}
+
+ul>li .caret {
+    border-left: 4px dashed;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    text-align: center;
+}
+
+@media screen and (max-width:480px) {
+    .item_div {
+        margin-left: 5%;
+        width: 90%;
+        font-size: 110%;
+    }
+}
+
+#pro:hover {
+    background-color: #ffffb3;
+}
+
+#buyBgDiv {
+    height: 670px;;
+}
+
+#filterDiv{
+    top:20px;
+    left:20px;
+    height:500px;
+    background-color:white;
+    box-shadow:2px 2px 2px grey;
+}
+
+.productStyles{
+    padding:0px;font-size:11px;
+}
+
+#paginationNav{
+    margin-top:530px;
+    padding: 0px;
+    position: fixed;
+}
+
+
+/*==================END of Buy CSS===================*/
+
+
+/*==================START of Sell CSS==================*/
+
+.bodyDiv {
+    background-image: url("/images/bg.png");
+    background-repeat: repeat;
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+    margin-top: -20px;
+    margin-left: 3px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+#sellBgDiv {
+    height: 740px;
+}
+
+#buyBgDiv,
+#sellBgDiv,
+#productDetailDiv {
+    top: -20px;
+    width: 100%;
+    background-color: pink;
+    z-index: -5;
+    position: absolute;
+    opacity: 0.1;
+}
+
+#sell_form {
+    position: relative;
+    top: 20px;
+    box-shadow: 3px 3px 2px grey;
+    height: auto;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 110%;
+    letter-spacing: 1px;
+    z-index: -2;
+}
+
+.fa .fa-plus {
+    background-color: yellow;
+}
+
+
+/*@media screen and (max-width:1100px){
+    #buyBgDiv{
+        height: 750px;
+    }
+    
+}*/
+
+@media screen and (max-width:767px) {
+    #titleDiv,
+    #catNbrn,
+    #mdlNbtn,
+    #priceDiv,
+    #descDiv,
+    #addrDiv,
+    #imgDiv,
+    #stateDiv {
+        margin-left: 30px;
+    }
+    #buyBgDiv {
+        height: 750px;
+    }
+    #sellBgDiv {
+        height: 1050px;
+    }
+    #addCatButton {
+        margin-left: -10px;
+        margin-top: 15px;
+    }
+}
+
+
+/*@media screen and (max-width:500px){
+    #productDetailDiv{
+        height: 570px;
+    }
+}*/
+
+.blackBG {
+    background-color: black;
+    height: 100%;
+    position: absolute;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.newCatNBrand {
+    top: 25%;
+    background-color: white;
+    z-index: 3;
+    height: 250px;
+    position: absolute;
+    border-radius: 4px;
+    box-shadow: 2px 2px 15px grey;
+}
+
+
+/*==================END of Sell CSS==================*/
+
+
+/*==================START of Product Detail CSS==================*/
+
+
+/*#productDetailDiv{
+    top:-20px;
+    height: 500px;
+    width: 100%;
+    background-color: black;
+    z-index: -5;
+    position: absolute;
+    opacity: 0.1;
+}*/
+
+#productDetailDiv {
+    height: 680px;
+}
+
+#product_details {
+    background-color: white;
+    top: 25px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 2px 2px 15px grey;
+   
+}
+
+
+/*==================END OF Product Detail CSS==================*/
+
+
+/*==================Start of Login CSS=========================*/
+
+#login_form,
+#signup_form {
+    top: 40px;
+    background-color: white;
+    height: auto;
+    box-shadow: 2px 2px 15px grey;
+    z-index: 5;
+    border-radius: 5px;
+}
+
+#infoIcon:hover {
+    cursor: pointer;
+}
+
+
+/*==================End of Login CSS===========================*/
+
+
+/*==================Start of SignUp CSS========================*/
+
+
+/* #signup_form{
+    height: 420px !important;
+} */
+
+.alert {
+    position: absolute;
+    margin-top: -35px;
+    padding: 7px;
+    margin-left: 450px;
+}
+
+#signupConfirmation {
+    background-color: white;
+    top: 200px;
+    height: 250px;
+    z-index: 10;
+    position: absolute;
+    border-radius: 5px;
+}
+
+
+/*==================End of SignUp CSS==========================*/
+
+/* @import "./font-awesome-4.7.0/font-awesome-4.7.0/less/font-awesome.less";
+@import "./font-awesome-4.7.0/font-awesome-4.7.0/less/animated.less"; */

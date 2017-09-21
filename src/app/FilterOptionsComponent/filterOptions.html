@@ -1,0 +1,25 @@
+<!-- <div id="buyBgDiv"></div> -->
+<div id="filterDiv" class="col-xs-2">
+    <h4>Filter By:</h4>
+    <hr>
+    <label>Categories ></label>
+    <div class="form-group" style="overflow-x:hidden;overflow-y:scroll;height:150px;">
+        <div class="checkbox" *ngFor= "let cat of categoryList" style="left:25px;">
+             <input id="{{cat}}" type="checkbox" name="catSelected" (change)="selectedValue(cat)" value="{{cat}}"><label for="{{cat}}">{{cat}}</label> 
+        </div>
+    </div>
+    <hr>
+    <label>Brands ></label>
+    <div class="form-group" style="overflow-x:hidden;overflow-y:scroll;height:150px;">
+        <div class="checkbox" *ngFor= "let brand of brandList" style="left:25px;">
+            <input id="{{brand}}" type="checkbox" name="brandSelected" (click)="selectedValue(brand)" value="{{brand}}"><label for="{{brand}}">{{brand}}</label>
+        </div>
+    </div>
+</div>
+<div class="blackBG col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="error.errorDiv" (click)="showError()">
+    <button (click)="showError()" class="col-lg-offset-11"><i class="fa fa-remove"></i></button>
+</div>
+<div *ngIf="error.errorDiv" class="newCatNBrand col-xl-offset-2 col-xl-8 col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+    <h2>{{error.result}}</h2><hr>
+    <h4>{{error.returnedValue}}</h4>
+</div>
