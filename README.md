@@ -1,28 +1,31 @@
-# WebpackNeuflea
+# Neuflea – Corporate Marketplace (OLX-style App)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+Neuflea is a prototype of an internal or B2B classifieds platform — think **OLX for corporate users**. It allows authenticated users to post, browse, and manage listings for physical goods, digital tools, or services across a company or org network.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 💡 Use Case
 
-## Code scaffolding
+- Internal asset exchange (unused hardware, licenses)
+- Office equipment resale within corporate ecosystem
+- Decentralized listing system (user → team → org)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+---
 
-## Build
+## 🛠️ Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+- HTML5 + SCSS / CSS
+- JavaScript (ES6)
+- Webpack (manual bundling)
+- Possibly jQuery (if used — confirm)
+- FontAwesome or similar for UI
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📦 Installation
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+git clone https://github.com/skywalker-/webpack-neuflea.git
+cd webpack-neuflea
+npm install
+npm run start
